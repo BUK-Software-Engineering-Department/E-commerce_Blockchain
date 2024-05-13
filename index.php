@@ -162,11 +162,11 @@ include("includes/main.php");
           </div>
 
           <div class="developer">
-            Developed by Yasser Dalouzi
+            Developed by Joel Onesimus
           </div>
 
           <div class="designby">
-            Design by Yasser Dalouzi
+            Design by Joel Onesimus
           </div>
 
         </div>

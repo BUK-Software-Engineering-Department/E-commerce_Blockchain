@@ -43,22 +43,6 @@ $order_id = $_GET['order_id'];
 
 <form action="confirm.php?update_id=<?php echo $order_id; ?>" method="post" enctype="multipart/form-data"><!--- form Starts -->
 
-<div class="form-group"><!-- form-group Starts -->
-
-<label>Invoice No:</label>
-
-<input type="text" class="form-control" name="invoice_no" required>
-
-</div><!-- form-group Ends -->
-
-
-<div class="form-group"><!-- form-group Starts -->
-
-<label>Amount Sent:</label>
-
-<input type="text" class="form-control" name="amount_sent" required>
-
-</div><!-- form-group Ends -->
 
 <div class="form-group"><!-- form-group Starts -->
 
@@ -67,41 +51,71 @@ $order_id = $_GET['order_id'];
 <select name="payment_mode" class="form-control"><!-- select Starts -->
 
 <option>Select Payment Mode</option>
-<option>Bank Code</option>
-<option>UBL/Omni</option>
+<option>Bank</option>
+<option>Crypto</option>
 <option>Western Union</option>
 
 </select><!-- select Ends -->
 
+
+<!-- form-group Starts -->
+<div class="form-group">
+
+<label>Invoice No:</label>
+
+<input type="text" class="form-control" name="invoice_no" required>
+
+</div>
+<!-- form-group Ends -->
+
+
+<!-- form-group Starts -->
+<!-- <div class="form-group">
+
+<label>Amount Sent:</label>
+
+<input type="text" class="form-control" name="amount_sent" required>
+
+</div> -->
+<!-- form-group Ends -->
+
+
+
 </div><!-- form-group Ends -->
 
-<div class="form-group"><!-- form-group Starts -->
+<!-- form-group Starts -->
+<div class="form-group">
 
 <label>Transaction/Reference Id:</label>
 
 <input type="text" class="form-control" name="ref_no" required>
 
-</div><!-- form-group Ends -->
+</div>
+<!-- form-group Ends -->
 
 
-<div class="form-group"><!-- form-group Starts -->
+<!-- form-group Starts -->
+<!-- <div class="form-group">
 
 <label>Omni Code:</label>
 
 <input type="text" class="form-control" name="code" required>
 
-</div><!-- form-group Ends -->
+</div> -->
+<!-- form-group Ends -->
 
 
-<div class="form-group"><!-- form-group Starts -->
+<!-- form-group Starts -->
+<!-- <div class="form-group">
 
 <label>Payment Date:</label>
 
 <input type="text" class="form-control" name="date" required>
 
-</div><!-- form-group Ends -->
+</div> -->
+<!-- form-group Ends -->
 
-<a href="../customer/wallet.html">Crypto Payment</a>
+<!-- <a href="../customer/balance.html">Crypto Payment</a> -->
 
 <div class="text-center"><!-- text-center Starts -->
 

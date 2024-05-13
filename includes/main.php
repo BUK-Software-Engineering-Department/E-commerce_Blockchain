@@ -66,12 +66,12 @@ if(!isset($_SESSION['customer_email'])){
 
         <div class="logo">
           <a class="logo__link" href="index.php">
-            <img class="logo__img" src="images/logo.png" alt="Avenue fashion logotype" width="237" height="19">
+            <img class="logo__img" src="images/icon.png" alt="Icon fashion logotype" width="100" height="9">
           </a>
         </div>
 
         <nav class="main-nav">
-          <ul class="categories">
+          <!-- <ul class="categories">
 
             <li class="categories__item">
               <a class="categories__link" href="#">
@@ -82,9 +82,9 @@ if(!isset($_SESSION['customer_email'])){
 
             <li class="categories__item">
               <a class="categories__link" href="#">
-                Womens
+                Wallet
                
-              </a>
+              </a> -->
             </li>
 
             <li class="categories__item">
@@ -93,18 +93,24 @@ if(!isset($_SESSION['customer_email'])){
               </a>
             </li>
 
-            <li class="categories__item">
+            <!-- <li class="categories__item">
               <a class="categories__link" href="localstore.php">
                 Local Stores
-              </a>
+              </a> -->
             </li>
 
-          <li class="categories__item">
-              <a class="categories__link" href="customer/my_account.php?my_orders">
-                My Account
-                <i class="icon-down-open-1"></i>
+            <li class="categories__item">
+              <a class="categories__link" href="customer/index.html">
+                Wallet
+               
               </a>
-              <div class="dropdown dropdown--lookbook">
+            </li>
+          <!-- <li class="categories__item">
+              <a class="categories__link" href="customer/my_account.php?my_orders">
+                My Account -->
+                <!-- <i class="icon-down-open-1"></i> -->
+              <!-- </a> -->
+              <!-- <div class="dropdown dropdown--lookbook">
                 <div class="clearfix">
                   <div class="dropdown__half">
                     <div class="dropdown__heading">Account Settings</div>
@@ -137,7 +143,7 @@ if(!isset($_SESSION['customer_email'])){
                 </div>
              
 
-              </div>
+              </div> -->
 
             </li>
 

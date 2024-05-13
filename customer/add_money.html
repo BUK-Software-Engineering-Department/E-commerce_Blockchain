@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Money</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        margin-top: 50px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+ -webkit-appearance: none;
+ max-width: 0;
+}
+
+input[type="number"] {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 20% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.success-tick {
+    font-size: 50px;
+    color: #4CAF50;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Add Money</h2>
+    <input type="number" id="amountToAdd" placeholder="Enter Amount">
+    <button onclick="openModal()">Confirm Deposit</button>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3>Enter Mastercard Details</h3>
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" placeholder="Enter Card Number"><br>
+        <label for="expiryDate">Expiry Date:</label>
+        <input type="text" id="expiryDate" placeholder="MM/YY"><br>
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" placeholder="Enter CVV"><br>
+        <button onclick="confirmDeposit()">Confirm Deposit</button>
+    </div>
+</div>
+
+<!-- Success Tick -->
+<div id="successTick" class="modal" style="display:none;">
+    <div class="modal-content">
+        <div class="success-tick">&#10004;</div>
+        <p>Transaction successful!</p>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('myModal');
+    const successTickModal = document.getElementById('successTick');
+    let countdownTimer;
+
+    function openModal() {
+        modal.style.display = "block";
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    function confirmDeposit() {
+        const amountToAdd = parseFloat(document.getElementById('amountToAdd').value);
+        if (!isNaN(amountToAdd) && amountToAdd > 0) {
+            let balance = localStorage.getItem('walletBalance') ? parseFloat(localStorage.getItem('walletBalance')) : 1000;
+            balance += amountToAdd;
+            localStorage.setItem('walletBalance', balance);
+            updateBalanceOnIndexPage(balance);
+            addToTransactionHistory(`Added: \u20A6${amountToAdd}`);
+            closeModal();
+            generateUSSDCode();
+        } else {
+            alert('Invalid amount.');
+        }
+    }
+
+    function updateBalanceOnIndexPage(balance) {
+        // Assuming index.html is open in another tab, we can use localStorage to communicate
+        localStorage.setItem('updatedBalance', balance);
+    }
+
+    function addToTransactionHistory(action) {
+        let transactionHistory = JSON.parse(localStorage.getItem('transactionHistory')) || [];
+        const transactionCounter = transactionHistory.length + 1;
+        transactionHistory.push(`Transaction ${transactionCounter}: ${action}`);
+        localStorage.setItem('transactionHistory', JSON.stringify(transactionHistory));
+    }
+
+    function generateUSSDCode() {
+        startCountdown();
+        successTickModal.style.display = "block";
+        setTimeout(() => {
+            successTickModal.style.display = "none";
+            window.location.href = 'index.html'; // Redirect to index.html
+        }, 4000); // Show success tick for 4 seconds
+    }
+
+    function startCountdown() {
+        let minutes = 5;
+        let seconds = 0;
+        countdownTimer = setInterval(() => {
+            document.getElementById('countdown').textContent = `${minutes} min ${seconds} sec`;
+            if (minutes === 0 && seconds === 0) {
+                clearInterval(countdownTimer);
+            } else if (seconds === 0) {
+                minutes--;
+                seconds = 59;
+            } else {
+                seconds--;
+            }
+        }, 1000);
+    }
+</script>
+</body>
+</html>
+

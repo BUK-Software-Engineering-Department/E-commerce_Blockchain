@@ -466,7 +466,17 @@ INSERT INTO `wishlist` (`wishlist_id`, `customer_id`, `product_id`) VALUES
 --
 -- Indexes for dumped tables
 --
+-- starts to create user
+CREATE TABLE wallet (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    balance DECIMAL(10,2) NOT NULL
+);
 
+INSERT INTO wallet (balance) VALUES 
+(1000.00);
+
+
+-- enddd
 --
 -- Indexes for table `about_us`
 --

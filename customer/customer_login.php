@@ -11,9 +11,9 @@
 
 </center>
 
-<p class="text-muted" >
+<!-- <p class="text-muted" >
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, facilis. Optio modi explicabo eligendi eveniet magnam? Reiciendis consectetur placeat est.
-</p>
+</p> -->
 
 
 

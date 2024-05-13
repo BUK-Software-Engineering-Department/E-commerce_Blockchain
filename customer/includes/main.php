@@ -66,14 +66,14 @@
 
         <div class="logo">
           <a class="logo__link" href="../index.php">
-            <img class="logo__img" src="images/logo.png" alt="Avenue fashion logotype" width="237" height="19">
+            <img class="logo__img" src="images/icon.png" alt="Icon fashion logo" width="100" height="9">
           </a>
         </div>
 
         <nav class="main-nav">
           <ul class="categories">
 
-            <li class="categories__item">
+            <!-- <li class="categories__item">
               <a class="categories__link" href="#">
                 Mens
                 <i class="icon-down-open-1"></i>
@@ -85,11 +85,18 @@
                 Womens
             
               </a>
-            </li>
+            </li> -->
 
             <li class="categories__item">
               <a class="categories__link categories__link--active" href="../shop.php">
                 Shop
+              </a>
+            </li>
+
+            <li class="categories__item">
+              <a class="categories__link" href="index.html">
+                Wallet
+            
               </a>
             </li>
 
@@ -99,12 +106,14 @@
               </a>
             </li>
 
-          <li class="categories__item">
-              <a class="categories__link" href="#">
-                My Account
-                <i class="icon-down-open-1"></i>
-              </a>
-              <div class="dropdown dropdown--lookbook">
+          
+
+          <!-- <li class="categories__item"> -->
+              <!-- <a class="categories__link" href="#">
+                My Account -->
+                <!-- <i class="icon-down-open-1"></i> -->
+              <!-- </a> -->
+              <!-- <div class="dropdown dropdown--lookbook">
                 <div class="clearfix">
                   <div class="dropdown__half">
                     <div class="dropdown__heading">Account Settings</div>
@@ -137,9 +146,9 @@
                 </div>
              
 
-              </div>
+              </div> -->
 
-            </li>
+            <!-- </li> -->
 
           </ul>
         </nav>
